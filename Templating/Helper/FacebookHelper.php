@@ -77,14 +77,9 @@ class FacebookHelper extends Helper
         ));
     }
 
-    public function loginButton($parameters = array(), $name = null)
+    public function logoutUrl($parameters = array(), $name = null)
     {
-        $name = $name ?: 'FOSFacebookBundle::loginButton.html.php';
-        return $this->templating->render($name, $parameters + array(
-            'autologoutlink' => 'false',
-            'label'          => '',
-            'scope'          => implode(',', $this->scope),
-        ));
+        return $this->facebook->getLogoutUrl($parameters);
     }
 
     /**
